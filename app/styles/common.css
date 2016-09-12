@@ -1,0 +1,81 @@
+a:hover {
+  cursor: pointer;
+}
+
+/*헤더*/
+.navbar {
+  margin-bottom: 0;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 0px 2px 2px rgba(0, 0, 0, 0.098),
+  0px 0px 5px 1px rgba(0, 0, 0, 0.084);
+  z-index: 10;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: #666666;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+.nav > li > a {
+  padding: 6px 18px;
+  margin-top: 9px;
+  font-size: 18px;
+}
+
+.navbar-default {
+  background-color: #fff;
+}
+
+.nav-top {
+  text-align: right;
+  padding: 10px 20px 10px 10px;
+  background-color: #666;
+  color: #ffffff;
+}
+
+.nav-top a {
+  color: #ffffff;
+  padding: 10px;
+}
+
+/*어사이드*/
+.static-aside {
+  background-color: #dddddd;
+  height: 100%;
+  padding: 20px;
+}
+
+.static-aside dt {
+  margin: 10px 0;
+}
+
+.static-aside a {
+  color: #666;
+  font-size: 18px;
+  padding: 10px 20px;
+  display: block;
+}
+
+.static-aside a.active {
+  color: #fff;
+  background-color: #666;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  display: block;
+}
+
+.static-aside a:hover {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/*섹션*/
+.static-section {
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.14),
+  0px 2px 9px rgba(0, 0, 0, 0.098),
+  0px 5px 6px rgba(0, 0, 0, 0.084);
+}
