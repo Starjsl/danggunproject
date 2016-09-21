@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap-fileinput/css/fileinput.css">
   <link rel="stylesheet" href="/styles/common.css">
+  <link rel="stylesheet" href="./addLandingpage.css">
 </head>
 <body>
 <header>
@@ -16,7 +19,7 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                data-target="#openNav" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -24,10 +27,12 @@
         </button>
         <a class="navbar-brand" href="#">Brand</a>
       </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">랜딩 페이지</a></li>
-        <li><a href="#">고객 관리</a></li>
-      </ul>
+      <div id="openNav" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">랜딩 페이지</a></li>
+          <li><a href="#">고객 관리</a></li>
+        </ul>
+      </div>
     </div><!-- /.container-fluid -->
   </nav>
 </header>
@@ -40,11 +45,295 @@
       </dl>
     </aside>
     <section class="col-md-10 static-section">
+      <h1>게시글 수정</h1>
+      <hr>
+      <form class="form-horizontal">
+        <fieldset>
+          <legend>기본정보</legend>
+          <hr>
+          <div class="form-group">
+            <label for="enterpriseName" class="col-sm-1 control-label">업체명</label>
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="enterpriseName" placeholder="업체명을 입력해주세요.">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adminName" class="col-sm-1 control-label">제목(관리자)</label>
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="adminName" placeholder="제목(관리자)을 입력해주세요.">
+            </div>
+          </div>
+          <div class="form-group input-daterange">
+            <label for="adminName" class="col-sm-1 control-label">시작일</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="startDate" readonly="">
+            </div>
+            <label for="adminName" class="col-sm-1 control-label">종료일</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="endDate" readonly="">
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <legend>내용입력</legend>
+          <hr>
+          <div class="form-group">
+            <label for="userName" class="col-sm-1 control-label">제목(유저)</label>
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="userName" placeholder="유저명을 입력해주세요.">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="kakaoId" class="col-sm-1 control-label">카카오톡ID</label>
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="kakaoId" placeholder="카카오아이디를 입력해주세요.">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telNum" class="col-sm-1 control-label">전화번호</label>
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="telNum" placeholder="전화번호를 입력해주세요.">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mainImage" class="col-sm-1 control-label">본문이미지</label>
+            <div class="col-sm-11">
+              <input type="file" class="file" id="mainImage">
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <div class="form-group">
+            <label for="pageScriptText" class="col-sm-12 legend-label">페이지 스크립트</label>
+            <div class="col-sm-12">
+              <p>페이지가 열리면 무조건 실행되는 스크립트<br>
+                구글 아날리틱스 코드, 페이스북 전환 픽셀 등의 페이지에 삽입할 스크립트를 넣어주세요.<br>
+                앞, 뒤에 &#60;script&#62;&#44;&nbsp;&#60;&#47;script&#62;라는 문구가 없을 경우 추가해주세요.</p>
+            </div>
+            <div class="col-sm-12">
+              <textarea id="pageScriptText" class="form-control"></textarea>
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <div class="form-group">
+            <label for="dbScriptText" class="col-sm-12 legend-label">DB 스크립트</label>
+            <div class="col-sm-12">
+              <p>DB 입력 완료 후 실행되는 스크립트<br>
+                구글 아날리틱스 코드, 페이스북 전환 픽셀 등의 페이지에 삽입할 스크립트를 넣어주세요.<br>
+                앞, 뒤에 &#60;script&#62;&#44;&nbsp;&#60;&#47;script&#62;라는 문구가 없을 경우 추가해주세요.</p>
+            </div>
+            <div class="col-sm-12">
+              <textarea id="dbScriptText" class="form-control"></textarea>
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <div class="form-group">
+            <label for="dbInputSkin" class="col-sm-12 legend-label">DB입력창 스킨 설정</label>
+            <div class="col-sm-12">
+              <p>미리보기는 이미지 저장과 아래 항목들까지 작성해야 제대로 볼 수 있습니다.</p>
+            </div>
+            <div class="col-sm-11">
+              <select id="dbInputSkin" class="form-control">
+                <option>기본 스킨</option>
+                <option>스킨1</option>
+                <option>스킨2</option>
+              </select>
+            </div>
+            <div class="col-sm-1">
+              <button type="button" class="btn btn-lc1 form-control">미리보기</button>
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <div class="submit-button-group">
+          <button class="btn btn-lc3">저장</button>
+          <button class="btn btn-lc2">취소</button>
+        </div>
+      </form>
+
+      <form class="form-horizontal">
+        <div class="caution-wrap">
+          <p>&#8251;아래 항목은 변경시 실시간으로 반영됩니다.</p>
+        </div>
+        <fieldset>
+          <legend>접속URL</legend>
+          <p>원하는 URL에서 맨 뒤에 단어만 쓰면 됩니다. 만약 전체 URL이 http://m.medilatete.com/testurl이라면 testurl만 입력하면 됩니다.</p>
+          <div class="form-group row">
+            <label for="accessUrl" class="col-sm-1 control-label">접속URL</label>
+            <div class="col-sm-8">
+              <input type="text" id="accessUrl" placeholder="URL" class="form-control">
+            </div>
+            <div class="col-sm-2">
+              <button type="button" class="btn btn-lc1 form-control">중복체크</button>
+            </div>
+            <div class="col-sm-1">
+              <button type="button" class="btn btn-lc3 form-control">추가</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="url-table-wrap col-sm-offset-1">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>URL</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>난 유알엘이당</td>
+                  <td>
+                    <button type="button" class="btn btn-lc4">삭제</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>난 유알엘이당</td>
+                  <td>
+                    <button type="button" class="btn btn-lc4">삭제</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <legend>DB입력 필드 구성</legend>
+          <p>최대 20개 까지만 등록 가능합니다. 등록 후 삭제가 불가능하며, 비활성화만 가능합니다.<br>
+            비활성화된 항목은 유저 페이지에 노출되지 않습니다.</p>
+          <div class="form-group">
+            <label for="fieldName" class="col-sm-1 control-label">필드명</label>
+            <div class="col-sm-4">
+              <input type="text" id="fieldName" placeholder="Caption" class="form-control">
+            </div>
+            <label for="dataType" class="col-sm-1 control-label">데이터타입</label>
+            <div class="col-sm-4">
+              <select id="dataType" class="form-control">
+                <option value="텍스트">텍스트</option>
+                <option value="전화번호">전화번호</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <button type="button" class="btn btn-lc3 form-control">추가</button>
+            </div>
+          </div>
+          <div class="url-table-wrap col-sm-offset-1">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>No.</th>
+                <th>URL</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>1</td>
+                <td>난 유알엘이당</td>
+                <td>
+                  <button type="button" class="btn btn-lc4">삭제</button>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>난 유알엘이당</td>
+                <td>
+                  <button type="button" class="btn btn-lc4">삭제</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+          <legend>DB입력 필드 구성</legend>
+          <p>최대 20개 까지만 등록 가능합니다. 등록 후 삭제가 불가능하며, 비활성화만 가능합니다.<br>
+            비활성화된 항목은 유저 페이지에 노출되지 않습니다.</p>
+          <div class="form-group">
+            <label for="clauseName" class=" col-sm-1 control-label">약관명</label>
+            <div class="col-sm-10">
+              <input type="text" id="clauseName" placeholder="Caption" class="form-control">
+            </div>
+            <div class="col-sm-1">
+              <button type="button" class="btn btn-lc3 form-control">추가</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="clauseContent" class=" col-sm-1 control-label">내용</label>
+            <div class="col-sm-10">
+              <textarea type="text" id="clauseContent" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-1">
+              <button type="button" class="btn btn-lc3 form-control">추가</button>
+            </div>
+          </div>
+          <div class="clause-table-wrap col-sm-offset-1">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>No.</th>
+                <th>약관명</th>
+                <th>내용</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>1</td>
+                <td><input type="text" class="form-control" placeholder="약관명"></td>
+                <td><textarea class="form-control" placeholder="약관내용"></textarea></td>
+                <td>
+                  <div class="clause-wrap">
+                    <div>
+                      <button type="button" class="btn btn-lc4">수정</button>
+                    </div>
+                    <div>
+                      <button type="button" class="btn btn-lc4">삭제</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>난 유알엘이당</td>
+                <td></td>
+                <td>
+                  <button type="button" class="btn btn-lc4">수정</button>
+                  <button type="button" class="btn btn-lc4">삭제</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </fieldset>
+        <hr>
+      </form>
     </section>
   </div>
 </main>
 
 <script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/bootstrap-fileinput/js/plugins/canvas-to-blob.js"></script>
+<script src="/bower_components/bootstrap-fileinput/js/plugins/sortable.js"></script>
+<script src="/bower_components/bootstrap-fileinput/js/plugins/purify.js"></script>
+<script src="/bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/bower_components/bootstrap-fileinput/themes/fa/theme.js"></script>
+<script src="/bower_components/bootstrap-fileinput/js/locales/ja.js"></script>
+<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script src="/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ko.min.js"></script>
+
+<script src="./addLandingpage.js"></script>
 </body>
 </html>
