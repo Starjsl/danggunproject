@@ -41,6 +41,52 @@
   <link rel="stylesheet" href="styles/common.css">
 </head>
 <body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <!--<div class="col-md-10">헤헤</div>-->
+      <h2>랜딩 페이지 목록</h2>
+      <div style="overflow: hidden;">ㄴ
+        <h6 style="float: left;">&nbsp;-&nbsp;수정하려면 제목을, 수집된 DB를 확인하려면 DB수 항목을 클릭하세요</h6>
+        <h4 style="float: right"><span class="label label-info">총 221개&nbsp;</span></h4>
+      </div>
+
+    - 수정하려면 제목을, 수집된 DB를 확인하려면 DB수 항목을 클릭하세요.
+
+      <ol class="breadcrumb" style="float:right;">
+        <li><a href="home.mv">홈</a></li>
+        <li><a href="landingPageList.mv">랜딩페이지</a></li>
+        <li class="active">목록</li>
+      </ol>
+
+    <div class="table-responsive">
+        <thead><tr>
+          <th>등록일</th>
+          <th>업체명</th>
+          <th>제목</th>
+          <th>담당자</th>
+          <th>시작일</th>
+          <th>종료일</th>
+          <th>진행여부</th>
+          <th>DB수</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
+      </div>
+
+    <ul id="pagination-demo" class="pagination-sm"></ul>
+      <div id="">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- build:js scripts/main.min.js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -62,6 +108,14 @@
   })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
   ga('create', 'UA-XXXXX-X', 'auto');
   ga('send', 'pageview');
+
+  $('#pagination-demo').twbsPagination({
+    totalPages: 35,
+    visiblePages: 7,
+    onPageClick: function (event, page) {
+      $('#page-content').text('Page ' + page);
+    }
+  });
 </script>
 <!-- Built with love using Web Starter Kit -->
 </body>
