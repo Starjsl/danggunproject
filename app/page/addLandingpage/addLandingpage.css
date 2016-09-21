@@ -1,0 +1,6 @@
+.input-daterange input:last-child {
+  border-radius: 4px;
+}
+.input-daterange input:first-child {
+  border-radius: 4px;
+}

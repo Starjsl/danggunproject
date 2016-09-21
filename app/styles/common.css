@@ -1,5 +1,50 @@
+/*커스터마이징*/
+/*테마*/
+.btn-lc1 {
+  color: #fff;
+  background-color: #666666;
+  border-color: #666666;
+}
+
+.btn-lc2 {
+  color: #fff;
+  background-color: #999;
+  border-color: #999;
+}
+
+.btn-lc3 {
+  color: #fff;
+  background-color: #ff5a00;
+  border-color: #ff5a00;
+}
+
+.btn-lc4 {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+/*덮어쓰기*/
 a:hover {
   cursor: pointer;
+}
+
+legend {
+  border: none;
+  margin-bottom: 0;
+}
+
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form-horizontal {
+  margin-bottom: 40px;
+}
+
+.btn:hover, .btn:focus, .btn.focus {
+  color: #fff;
 }
 
 /*헤더*/
@@ -15,7 +60,7 @@ a:hover {
   background-color: #666666;
   color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
 }
 
 .nav > li > a {
@@ -63,12 +108,12 @@ a:hover {
   background-color: #666;
   border-radius: 10px;
   padding: 10px 20px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
   display: block;
 }
 
 .static-aside a:hover {
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
   border-radius: 10px;
   text-decoration: none;
 }
@@ -78,4 +123,45 @@ a:hover {
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.14),
   0px 2px 9px rgba(0, 0, 0, 0.098),
   0px 5px 6px rgba(0, 0, 0, 0.084);
+}
+
+.static-section h1 {
+  margin-bottom: 40px;
+}
+
+.static-section label {
+  color: #999999;
+}
+
+.static-section h1, .static-section legend, .static-section .legend-label {
+  font-weight: bold;
+}
+
+.static-section legend, .static-section .legend-label {
+  color: #666;
+  font-size: 21px;
+}
+
+.static-section .submit-button-group {
+  text-align: right;
+}
+
+.static-section .submit-button-group button {
+  width: 100px;
+  font-weight: bold;
+}
+
+.static-section .caution-wrap {
+  color: #ff5a00
+}
+
+.static-section .url-table-wrap table tr td:nth-child(2), .static-section .url-table-wrap table tr th:nth-child(2) {
+  width: 100%;
+}
+
+.static-section .clause-table-wrap table tr td:nth-child(3), .static-section .clause-table-wrap table tr th:nth-child(3) {
+  width: 60%;
+}
+.static-section .clause-wrap div{
+  padding: 5px 0;
 }
